@@ -20,7 +20,7 @@ class Stock:
 
 
 class Sell:
-    def __init__(self, itens_sold: Product, seller, customer, quantity_sold, data=datetime.now()):  # noqa:E501
+    def __init__(self, itens_sold: Product, seller, customer, quantity_sold, data=datetime.now().strftime('%d/%m/%Y')):  # noqa:E501
         self.itens_sold = itens_sold
         self.seller = seller
         self.customer = customer
