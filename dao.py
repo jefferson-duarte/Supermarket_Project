@@ -1,15 +1,6 @@
-import os
-from pathlib import Path
-
+from database_files import (category_txt, customer_txt, employee_txt, sell_txt,
+                            stock_txt, supplier_txt)
 from model import Category, Employee, Person, Product, Sell, Stock, Supplier
-
-BASE_DIR = Path(__file__).parent
-category_txt = os.path.join(BASE_DIR, 'database/category.txt')
-sell_txt = os.path.join(BASE_DIR, 'database/sell.txt')
-stock_txt = os.path.join(BASE_DIR, 'database/stock.txt')
-supplier_txt = os.path.join(BASE_DIR, 'database/supplier.txt')
-customer_txt = os.path.join(BASE_DIR, 'database/customer.txt')
-employee_txt = os.path.join(BASE_DIR, 'database/employee.txt')
 
 
 class DaoCategory:

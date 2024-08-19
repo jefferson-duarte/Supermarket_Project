@@ -162,4 +162,9 @@ cython_debug/
 #.idea/
 
 #my ignore
-database
+category.txt
+sell.txt
+stock.txt
+supplier.txt
+customer.txt
+employee.txt
