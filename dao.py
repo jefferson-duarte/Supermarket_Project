@@ -29,9 +29,9 @@ class DaoSell:
     def save(cls, sell: Sell):
         with open(sell_txt, 'a', encoding='utf-8') as file:
             file.writelines(
-                f'{sell.itens_sold.name} | {sell.itens_sold.price} | '
-                f'{sell.itens_sold.category} | {sell.seller} | '
-                f'{sell.customer} | {sell.quantity_sold} | {sell.data}'
+                f'{sell.itens_sold.name}|{sell.itens_sold.price}|'
+                f'{sell.itens_sold.category}|{sell.seller}|'
+                f'{sell.customer}|{sell.quantity_sold}|{sell.data}'
             )
             file.writelines('\n')
 
@@ -60,7 +60,7 @@ class DaoStock:
     def save(cls, product: Product, quantity):
         with open(stock_txt, 'a', encoding='utf-8') as file:
             file.writelines(
-                f'{product.name} | {product.price} | {product.category} | '
+                f'{product.name}|{product.price}|{product.category}|'
                 f'{quantity}'
             )
             file.writelines('\n')
@@ -90,7 +90,7 @@ class DaoSupplier:
     def save(cls, supplier: Supplier):
         with open(supplier_txt, 'a', encoding='utf-8') as file:
             file.writelines(
-                f'{supplier.name} | {supplier.cnpj} | {supplier.phone} | '
+                f'{supplier.name}|{supplier.cnpj}|{supplier.phone}|'
                 f'{supplier.category}'
             )
             file.writelines('\n')
@@ -111,13 +111,13 @@ class DaoSupplier:
         return list_supplier
 
 
-class DaoPessoa:
+class DaoPerson:
     @classmethod
     def save(cls, person: Person):
         with open(customer_txt, 'a', encoding='utf-8') as file:
             file.writelines(
-                f'{person.name} | {person.phone} | {person.cpf} | '
-                f'{person.email} | {person.address}'
+                f'{person.name}|{person.phone}|{person.cpf}|'
+                f'{person.email}|{person.address}'
             )
             file.writelines('\n')
 
@@ -143,8 +143,8 @@ class DaoEmployee:
     def save(cls, employee: Employee):
         with open(employee_txt, 'a', encoding='utf-8') as file:
             file.writelines(
-                f'{employee.clt} | {employee.name} | {employee.phone} | '
-                f'{employee.cpf} | {employee.email} | {employee.address}'
+                f'{employee.clt}|{employee.name}|{employee.phone}|'
+                f'{employee.cpf}|{employee.email}|{employee.address}'
             )
             file.writelines('\n')
 
