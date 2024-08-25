@@ -79,7 +79,7 @@ class DaoStock:
                 list_stock.append(
                     Stock(
                         Product(item[0], item[1], item[2]),
-                        item[3]
+                        int(item[3])
                     )
                 )
         return list_stock
