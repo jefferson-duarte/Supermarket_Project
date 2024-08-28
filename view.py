@@ -1,7 +1,11 @@
 import os
 from time import sleep
 
-import controller
+from controller.controller_category import ControllerCategory
+from controller.controller_client import ControllerClient
+from controller.controller_sale import ControllerSale
+from controller.controller_stock import ControllerStock
+from controller.controller_supplier import ControllerSupplier
 from database_files import create_files
 
 if __name__ == '__main__':
@@ -29,7 +33,7 @@ if __name__ == '__main__':
 
         match main_menu:
             case 1:
-                category = controller.ControllerCategory()
+                category = ControllerCategory()
                 while True:
                     os.system('cls')
                     print('=' * 35)
@@ -71,12 +75,14 @@ if __name__ == '__main__':
                                 old_category, new_category
                             )
                         case 4:
+                            os.system('cls')
                             category.show_category()
+                            sleep(5)
                         case 5:
                             break
 
             case 2:
-                stock = controller.ControllerStock()
+                stock = ControllerStock()
                 while True:
                     os.system('cls')
                     print('=' * 35)
@@ -133,5 +139,6 @@ if __name__ == '__main__':
 
                         case 5:
                             break
+
             case 8:
                 break
