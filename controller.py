@@ -48,6 +48,26 @@ class ControllerCategory:
             except Exception as e:
                 print(f'Error: {e}')
 
+        dao_stock = DaoStock.read()
+
+        stock = list(
+            map(
+                lambda x: Stock(
+                    Product(x.product.name, x.product.price, 'No Category'), x.quantity  # noqa:E501
+                )
+                if (x.product.category == del_category)
+                else (x), dao_stock
+            )
+        )
+
+        with open(stock_txt, 'w', encoding='utf-8') as file:
+            for item in stock:
+                file.writelines(
+                    f'{item.product.name}|{item.product.price}|'
+                    f'{item.product.category}|{item.quantity}'
+                )
+                file.writelines('\n')
+
     def update_category(self, old_category, new_category):
         category = DaoCategory.read()
         old_filtered_category = list(
@@ -71,6 +91,27 @@ class ControllerCategory:
                 print(
                     f'Category "{new_category}" updated successfully.'
                 )
+
+                dao_stock = DaoStock.read()
+
+                stock = list(
+                    map(
+                        lambda x: Stock(
+                            Product(x.product.name, x.product.price, new_category), x.quantity  # noqa:E501
+                        )
+                        if (x.product.category == old_category)
+                        else (x), dao_stock
+                    )
+                )
+
+                with open(stock_txt, 'w', encoding='utf-8') as file:
+                    for item in stock:
+                        file.writelines(
+                            f'{item.product.name}|{item.product.price}|'
+                            f'{item.product.category}|{item.quantity}'
+                        )
+                        file.writelines('\n')
+
             else:
                 print(f'Category "{new_category}" already exist.')
 
