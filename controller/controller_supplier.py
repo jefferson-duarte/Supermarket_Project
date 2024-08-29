@@ -22,6 +22,26 @@ class ControllerSupplier:
             else:
                 print('Insert a CNPJ or phone valid.')
 
+    def remove_supplier(self, name):
+        dao_supplier = DaoSupplier.read()
+
+        list_name = list(filter(lambda x: x.name == name, dao_supplier))
+
+        if len(list_name) > 0:
+            for index in range(len(dao_supplier)):
+                if dao_supplier[index].name == name:
+                    del dao_supplier[index]
+                    break
+        else:
+            print(f'Supplier "{name}" does not exist.')
+            return None
+
+        with open(supplier_txt, 'w', encoding='utf-8') as file:
+            for item in dao_supplier:
+                file.writelines(f'{item.name}|{item.cnpj}|{item.phone}|{item.category}')  # noqa:E501
+                file.writelines('\n')
+            print(f'Supplier "{name}" removed successfully.')
+
     def update_supplier(self, old_name, new_name, new_cnpj, new_phone, new_category):  # noqa:E501
         dao_supplier = DaoSupplier.read()
 
