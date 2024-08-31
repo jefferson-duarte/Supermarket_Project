@@ -1,8 +1,10 @@
 from database_files import create_files
 from utils import clean_screen
+from view.best_selling_products import best_products
 from view.category import category_view
 from view.clients import client_view
 from view.employee import employee_view
+from view.sale import sale_view
 from view.stock import stock_view
 from view.supplier import supplier_view
 
@@ -40,5 +42,9 @@ if __name__ == '__main__':
                 client_view()
             case 5:
                 employee_view()
+            case 6:
+                sale_view()
+            case 7:
+                best_products()
             case 8:
                 break

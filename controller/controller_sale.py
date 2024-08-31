@@ -16,7 +16,7 @@ class ControllerSale:
             if not exist:
                 if item.product.name == product_name:
                     exist = True
-                    if item.quantity >= quantity_sold:
+                    if item.quantity >= int(quantity_sold):
                         quantity = True
                         item.quantity = int(item.quantity) - int(quantity_sold)
 
