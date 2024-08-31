@@ -48,6 +48,4 @@ class Person:
 class Employee(Person):
     def __init__(self, clt, name, cpf, phone, email, address):
         self.clt = clt
-        # TODO:super(Employee, self).__init__(name, cpf, phone, email, address)
-
         super().__init__(name, cpf, phone, email, address)
