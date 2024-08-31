@@ -1,14 +1,14 @@
-import os
 from time import sleep
 
 from controller.controller_supplier import ControllerSupplier
+from utils import clean_screen
 
 
 def supplier_view():
     supplier = ControllerSupplier()
 
     while True:
-        os.system('cls')
+        clean_screen()
         print('=' * 35)
         print(f'{" Supplier ": ^35}')
 
@@ -24,7 +24,7 @@ def supplier_view():
 
         match option_supplier:
             case 1:
-                os.system('cls')
+                clean_screen()
                 name = input('Insert the supplier name: ')
                 cnpj = input('Insert the supplier CNPJ: ')
                 phone = input('Insert the supplier phone: ')
@@ -36,7 +36,7 @@ def supplier_view():
                 sleep(5)
 
             case 2:
-                os.system('cls')
+                clean_screen()
                 name = input(
                     'Insert the supplier name to remove: '
                 )
@@ -44,7 +44,7 @@ def supplier_view():
                 sleep(5)
 
             case 3:
-                os.system('cls')
+                clean_screen()
                 old_name = input(
                     'Insert the supplier name to change: '
                 )
@@ -59,7 +59,7 @@ def supplier_view():
                 sleep(5)
 
             case 4:
-                os.system('cls')
+                clean_screen()
                 supplier.show_suppiers()
                 sleep(5)
 

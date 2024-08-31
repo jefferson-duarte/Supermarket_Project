@@ -1,14 +1,14 @@
-import os
 from time import sleep
 
 from controller.controller_stock import ControllerStock
+from utils import clean_screen
 
 
 def stock_view():
     stock = ControllerStock()
 
     while True:
-        os.system('cls')
+        clean_screen()
         print('=' * 35)
         print(f'{" Stock ": ^35}')
 
@@ -24,7 +24,7 @@ def stock_view():
 
         match option_stock:
             case 1:
-                os.system('cls')
+                clean_screen()
                 name = input('Insert the product name: ')
                 price = input('Insert the product price: ')
                 category = input('Insert the product category: ')
@@ -36,13 +36,13 @@ def stock_view():
                 sleep(5)
 
             case 2:
-                os.system('cls')
+                clean_screen()
                 name = input('Insert the product name to remove: ')
                 stock.remove_product(name)
                 sleep(5)
 
             case 3:
-                os.system('cls')
+                clean_screen()
                 update_name = input(
                     'Insert the product name to change: '
                 )
@@ -57,7 +57,7 @@ def stock_view():
                 sleep(5)
 
             case 4:
-                os.system('cls')
+                clean_screen()
                 stock.show_stock()
                 sleep(5)
 

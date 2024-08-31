@@ -1,12 +1,14 @@
-import os
+from time import sleep
 
 from controller.controller_category import ControllerCategory
+from utils import clean_screen
 
 
 def category_view():
     category = ControllerCategory()
     while True:
-        os.system('cls')
+        clean_screen()
+
         print('=' * 35)
         print(f'{" Category ": ^35}')
 
@@ -20,54 +22,39 @@ def category_view():
             '===================================\n'
         ))
 
-        enter = True
         match option_category:
             case 1:
-                while enter:
-                    os.system('cls')
-                    new_category = input(
-                        'Insert a category to register: '
-                    )
-                    category.register_category(new_category)
-                    exit = input('Type exit to close: ')
-
-                    if exit:
-                        enter = False
+                clean_screen()
+                new_category = input(
+                    'Insert a category to register: '
+                )
+                category.register_category(new_category)
+                sleep(5)
             case 2:
-                while enter:
-                    os.system('cls')
-                    remove_category = input(
-                        'Insert a category name to remove: '
-                    )
-                    category.remove_category(remove_category)
-
-                    exit = input('Type exit to close: ')
-                    if exit:
-                        enter = False
+                clean_screen()
+                remove_category = input(
+                    'Insert a category name to remove: '
+                )
+                category.remove_category(remove_category)
+                sleep(5)
 
             case 3:
-                while enter:
-                    os.system('cls')
-                    old_category = input(
-                        'Insert the category name to update: '
-                    )
-                    new_category = input(
-                        'Isert the new category name: '
-                    )
-                    category.update_category(
-                        old_category, new_category
-                    )
+                clean_screen()
+                old_category = input(
+                    'Insert the category name to update: '
+                )
+                new_category = input(
+                    'Isert the new category name: '
+                )
+                category.update_category(
+                    old_category, new_category
+                )
+                sleep(5)
 
-                    exit = input('Type exit to close: ')
-                    if exit:
-                        enter = False
             case 4:
-                while enter:
-                    os.system('cls')
-                    category.show_category()
+                clean_screen()
+                category.show_category()
+                sleep(5)
 
-                    exit = input('Type exit to close: ')
-                    if exit:
-                        enter = False
             case 5:
                 break
